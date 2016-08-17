@@ -8,7 +8,6 @@ import random
 VOWELS = "aeiou"
 CONSONANTS = "bcdfghjklmnpqrstvwxyz"
 ALPHABET = "abcdefghijklmnopqrstuvwxyz"
-FORMAT_OPTIONS = "cv#%*"
 
 def main():
     word_format = (input("Please enter word format:\n\t'c' for consonants\n\t'v' for vowels\n> ")).lower()
