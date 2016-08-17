@@ -10,25 +10,33 @@ CONSONANTS = "bcdfghjklmnpqrstvwxyz"
 ALPHABET = "abcdefghijklmnopqrstuvwxyz"
 FORMAT_OPTIONS = "cv#%*"
 
-# word_format = (input("Please enter word format:\n\t'c' for consonants\n\t'v' for vowels\n> ")).lower()
-word_length = int(input("Please enter desired length of word: "))
-word_format = ""
+def main():
+    word_format = (input("Please enter word format:\n\t'c' for consonants\n\t'v' for vowels\n> ")).lower()
 
-for i in range(1, word_length + 1):
-    word_format += random.choice(FORMAT_OPTIONS)
+    validity = False
 
-print("\nGenerated word format: ", word_format)
+    while validity == False:
+        validity = is_valid_format(word_format)
+        if validity == False:
+            word_format = (input("Word format can only consist of:\n\t'c' for consonants\n\t'v' for vowels\n> ")).lower()
 
-word = ""
+    word = ""
 
-for kind in word_format:
-    if kind == "c" or kind == "%":
-        word += random.choice(CONSONANTS)
-    elif kind == "v" or kind == "#":
-        word += random.choice(VOWELS)
-    elif kind == "*":
-        word += random.choice(ALPHABET)
-    else:
-        word += kind
+    for kind in word_format:
+        if kind == "c" or kind == "%":
+            word += random.choice(CONSONANTS)
+        else:
+            word += random.choice(VOWELS)
 
-print("Generated word: ", word)
+    print("Generated word: ", word)
+
+
+def is_valid_format(word_format):
+    for kind in word_format:
+        if kind != "c" and kind != "v":
+            return False
+
+    return True
+
+
+main()
