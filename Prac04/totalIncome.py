@@ -12,6 +12,16 @@ def main():
         income = float(input("Enter income for month {}: ".format(month)))
         incomes.append(income)
 
+    print_report(incomes, month_number)
+
+
+def print_report(incomes, month_number):
+    """
+    Prints income for current month as well as cumulative list
+    :param incomes:
+    :param month_number:
+    :return: None
+    """
     print("\nIncome Report\n-------------")
     total = 0
     for month in range(1, month_number + 1):
