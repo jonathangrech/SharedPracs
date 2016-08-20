@@ -10,4 +10,5 @@ for i in range(0,number_of_lines):
         if number not in taken_numbers:
             taken_numbers.append(number)
             list.append(number)
-    print(list)
+
+    print(" ".join(str(x) for x in sorted(list)))
