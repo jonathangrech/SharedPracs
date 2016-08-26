@@ -1,6 +1,6 @@
 import random
 
-number_of_lines = int(input("How many quick picks? "))
+number_of_lines = int(input("How many quick picks: "))
 
 for i in range(0,number_of_lines):
     list_of_numbers = []
