@@ -9,3 +9,13 @@ COLOUR_CODES = {"AliceBlue": "#f0f8ff", "DarkGreen": "#006400", "GreenYellow": "
 
 for colour in COLOUR_CODES:
     print("{:<20} is {}".format(colour, COLOUR_CODES[colour]))
+
+colour = input("Enter colour name: ")
+while colour != "":
+    if colour in COLOUR_CODES:
+        print(colour, "is", COLOUR_CODES[colour])
+        break
+    else:
+        print("Invalid colour name")
+        break
+state = input("Enter colour name: ")
