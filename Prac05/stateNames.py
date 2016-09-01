@@ -6,7 +6,9 @@ File needs reformatting
 
 STATE_NAMES = {"QLD": "Queensland", "NSW": "New South Wales", "NT": "Northern Territory", "WA": "Western Australia",
                "ACT": "Australian Capital Territory", "VIC": "Victoria", "TAS": "Tasmania"}
-# print(STATE_NAMES)
+
+for state in STATE_NAMES:
+    print("{:<4} is {}".format(state, STATE_NAMES[state]))
 
 state = input("Enter short state: ").upper()
 while state != "":
