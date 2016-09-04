@@ -9,3 +9,6 @@ for word in list_of_words:
     else:
         word_dict[word] = 1
 
+
+for word in word_dict:
+    print("{} : {}".format(word, word_dict[word]))
