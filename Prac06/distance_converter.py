@@ -12,11 +12,16 @@ class ConvertDistanceApp(App):
         self.title = "Convert Miles to Kilometres"
         self.root = Builder.load_file('distance_converter.kv')
         return self.root
-    #
-    # def handle_calculate(self, value):
-    #     """ handle calculation (could be button press or other call), output result to label widget """
-    #     result = value ** 2
-    #     self.root.ids.output_label.text = str(result)
+
+    def handle_increase(self, value):
+        self.root.ids.input_distance.text = str(int(self.root.ids.input_distance.text) + value)
+
+    def handle_decrease(self, value):
+        self.root.ids.input_distance.text = str(int(self.root.ids.input_distance.text) + value)
+
+    def handle_convert(self, value):
+        self.root.ids.output_label.text = str(round(int(self.root.ids.input_distance.text) * 1.609344, 3))
+
 
 
 ConvertDistanceApp().run()

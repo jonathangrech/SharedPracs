@@ -3,7 +3,7 @@ BoxLayout:
     BoxLayout:
         orientation: 'horizontal'
         TextInput:
-            id: input_number
+            id: input_distance
             text: '7'
             font_size: 30
             multiline: False
@@ -11,12 +11,18 @@ BoxLayout:
             orientation: 'vertical'
             size_hint: 0.2, 1.0
             Button:
+                id: up_button
                 text: "Up"
+                on_press: app.handle_increase(1)
             Button:
+                id: down_button
                 text: "Down"
+                on_press: app.handle_increase(-1)
     Button:
-        text: 'Covert m to km'
+        id: convert_button
+        text: 'Covert miles to km'
+        on_press: app.handle_convert(int(input_distance.text))
     Label:
-        text: 'Layout test'
+        id: output_label
         font_size: 30
         color: (1,1,0,1)
