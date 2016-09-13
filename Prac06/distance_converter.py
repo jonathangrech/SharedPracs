@@ -13,14 +13,15 @@ class ConvertDistanceApp(App):
         self.root = Builder.load_file('distance_converter.kv')
         return self.root
 
-    def handle_increase(self, value):
+    def handle_increment(self, value):
         self.root.ids.input_distance.text = str(int(self.root.ids.input_distance.text) + value)
+        self.handle_convert()
 
-    def handle_decrease(self, value):
-        self.root.ids.input_distance.text = str(int(self.root.ids.input_distance.text) + value)
-
-    def handle_convert(self, value):
-        self.root.ids.output_label.text = str(round(int(self.root.ids.input_distance.text) * 1.609344, 3))
+    def handle_convert(self):
+        try:
+            self.root.ids.output_label.text = str(round(int(self.root.ids.input_distance.text) * 1.609344, 3))
+        except ValueError:
+            self.root.ids.output_label.text = "0.0"
 
 
 

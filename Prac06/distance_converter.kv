@@ -13,15 +13,15 @@ BoxLayout:
             Button:
                 id: up_button
                 text: "Up"
-                on_press: app.handle_increase(1)
+                on_press: app.handle_increment(1)
             Button:
                 id: down_button
                 text: "Down"
-                on_press: app.handle_increase(-1)
-    Button:
-        id: convert_button
-        text: 'Covert miles to km'
-        on_press: app.handle_convert(int(input_distance.text))
+                on_press: app.handle_increment(-1)
+#    Button:
+#        id: convert_button
+#        text: 'Covert miles to km'
+#        on_press: app.handle_convert()
     Label:
         id: output_label
         font_size: 30
