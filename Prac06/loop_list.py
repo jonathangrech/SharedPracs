@@ -10,6 +10,7 @@ class loopListApp(App):
     def __init__(self, **kwargs):
         # Construct main app
         super().__init__(**kwargs)
+        # basic data example - dictionary of names: phone numbers
         self.names= ["Jack", "Jenny", "Peter", "Pauline", "Chris", "Ryan"]
 
     def build(self):
