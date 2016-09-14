@@ -10,7 +10,7 @@ class loopListApp(App):
     def __init__(self, **kwargs):
         # Construct main app
         super().__init__(**kwargs)
-        self.names= ["Jack", "Jenny", "Peter", "Pauline", "Chris", "Ryan"]
+        self.names = ["Jack", "Jenny", "Peter", "Pauline", "Chris", "Ryan"]
 
     def build(self):
         # Build Kivy GUI
