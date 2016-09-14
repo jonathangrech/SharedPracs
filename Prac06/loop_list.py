@@ -14,7 +14,7 @@ class loopListApp(App):
 
     def build(self):
         # Build Kivy GUI
-        self.title = "Loop Through Names List"
+        self.title = "Loop Through Names"
         self.root = Builder.load_file('loop_list.kv')
         self.create_widgets()
         return self.root
