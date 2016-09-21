@@ -1,5 +1,6 @@
 from Prac07.guitar import Guitar
 
+
 def main():
 
     i = 0
@@ -26,11 +27,5 @@ def main():
                                                                            guitars[guitar_number].name,
                                                                            guitars[guitar_number].year,
                                                                            guitars[guitar_number].cost, vintage_string))
-
-
-    # gibson = Guitar("Gibson", 2011, 16035.4)
-    # print(gibson)
-    # print(gibson.get_age())
-    # print(gibson.is_vintage())
 
 main()
