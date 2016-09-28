@@ -2,7 +2,7 @@
 CP1404/CP5632 Practical
 Car class
 """
-
+from random import randint
 
 class Car:
     """ represent a car object """
@@ -58,4 +58,20 @@ class Taxi(Car):
         """ drive like parent Car but calculate fare distance as well"""
         distance_driven = super().drive(distance)
         self.current_fare_distance += distance_driven
+        return distance_driven
+
+
+class UnreliableCar(Car):
+
+    def __init__(self, name, fuel, reliability):
+        super().__init__(name, fuel)
+        self.reliability = reliability
+
+    def drive(self, distance):
+        drive_chance = randint(0,100)
+        if drive_chance < self.reliability:
+            distance_driven = super().drive(distance)
+        else:
+            distance_driven = 0
+
         return distance_driven

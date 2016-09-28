@@ -1,5 +1,7 @@
 from Prac08.taxi import Car
 from Prac08.taxi import Taxi
+from Prac08.taxi import UnreliableCar
+
 
 def main():
 
@@ -12,5 +14,9 @@ def main():
     taxi.drive(100)
     print(taxi)
     print("Current fare: ${}".format(taxi.get_fare()))
+
+    bad_car = UnreliableCar("Commodore", 100, 90)
+    bad_car.drive(65)
+    print(bad_car)
 
 main()
