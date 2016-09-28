@@ -2,7 +2,7 @@
 CP1404/CP5632 Practical
 Car class
 """
-from random import randint
+from random import uniform
 
 class Car:
     """ represent a car object """
@@ -68,10 +68,36 @@ class UnreliableCar(Car):
         self.reliability = reliability
 
     def drive(self, distance):
-        drive_chance = randint(0,100)
+        drive_chance = uniform(0,100)
         if drive_chance < self.reliability:
             distance_driven = super().drive(distance)
         else:
             distance_driven = 0
 
         return distance_driven
+
+class SilverServiceTaxi(Taxi):
+
+    flagfall = 4.5
+
+    def __init__(self, name, fuel, fanciness):
+        super().__init__(name, fuel)
+        self.price_per_km = Taxi.price_per_km * fanciness
+
+    def __str__(self):
+        return "{} plus flagfall of $4.50".format(super().__str__())
+
+    def get_fare(self):
+        """ get the price for the taxi trip """
+        return self.price_per_km * self.current_fare_distance + self.flagfall
+
+    def start_fare(self):
+        """ begin a new fare """
+        self.current_fare_distance = 0
+
+    def drive(self, distance):
+        """ drive like parent Car but calculate fare distance as well"""
+        distance_driven = distance
+        self.current_fare_distance += distance_driven
+        return distance_driven
+
