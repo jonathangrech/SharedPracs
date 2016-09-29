@@ -6,7 +6,8 @@ class ProgrammingLanguage:
         self.year = year
 
     def __str__(self):
-        # return "{}, {} Typing, Reflection={}, First appeared in {}".format(self.language, self.typing, self.reflection, self.year)
+        # return "{}, {} Typing, Reflection={}, First appeared in {}".format(self.language, self.typing,
+        #                                                                       self.reflection, self.year)
         return "{}".format(self.language)
 
     def is_dynamic(self):
