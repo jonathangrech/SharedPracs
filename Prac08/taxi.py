@@ -56,9 +56,22 @@ class Taxi(Car):
 
     def drive(self, distance):
         """ drive like parent Car but calculate fare distance as well"""
-        distance_driven = super().drive(distance)
+        if distance > self.fuel:
+            distance_driven = self.fuel
+            self.fuel = 0
+        else:
+            self.fuel -= distance
+            distance_driven = distance
+        self.odometer += distance_driven
         self.current_fare_distance += distance_driven
         return distance_driven
+
+    def get_trip_fare(self, distance, initial_fuel):
+        if distance < self.fuel:
+            cost_of_trip = distance * self.price_per_km
+        else:
+            cost_of_trip = initial_fuel * self.price_per_km
+        return cost_of_trip
 
 
 class UnreliableCar(Car):
@@ -83,13 +96,17 @@ class SilverServiceTaxi(Taxi):
     def __init__(self, name, fuel, fanciness):
         super().__init__(name, fuel)
         self.price_per_km = Taxi.price_per_km * fanciness
+        self.current_fare_distance = 0
 
     def __str__(self):
         return "{} plus flagfall of $4.50".format(super().__str__())
 
     def get_fare(self):
         """ get the price for the taxi trip """
-        return self.price_per_km * self.current_fare_distance + self.flagfall
+        if self.current_fare_distance == 0:
+            return 0
+        else:
+            return self.price_per_km * self.current_fare_distance + self.flagfall
 
     def start_fare(self):
         """ begin a new fare """
@@ -97,7 +114,17 @@ class SilverServiceTaxi(Taxi):
 
     def drive(self, distance):
         """ drive like parent Car but calculate fare distance as well"""
-        distance_driven = distance
+        if distance > self.fuel:
+            distance_driven = self.fuel
+            self.fuel = 0
+        else:
+            self.fuel -= distance
+            distance_driven = distance
+        self.odometer += distance_driven
         self.current_fare_distance += distance_driven
         return distance_driven
+
+    def get_trip_fare(self,distance, initial_fuel):
+        cost_of_trip = distance * self.price_per_km + self.flagfall
+        return cost_of_trip
 
