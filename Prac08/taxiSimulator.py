@@ -21,7 +21,6 @@ def main():
 
             total_bill = taxis[0].get_fare() + (taxis[1].get_fare() + taxis[2].get_fare())
 
-
         elif menu_option == "d":
             drive_distance = float(input("Drive how far? "))
             initial_fuel = taxis[taxi_option].fuel
@@ -31,12 +30,6 @@ def main():
                 print("Your {} trip cost you ${:.2f}".format(taxis[taxi_option].name, cost_of_trip))
                 total_bill += cost_of_trip
                 print("Bill to date: ${:.2f}".format(total_bill))
-                # taxis[taxi_option].drive(drive_distance)
-                # print("Your {} trip cost you ${:.2f}".format(taxis[taxi_option].name, taxis[taxi_option].get_trip_fare(drive_distance, initial_fuel)))
-                #
-                # total_bill += taxis[taxi_option].get_trip_fare(drive_distance, initial_fuel)
-                # print("Bill to date: ${:.2f}".format(total_bill))
-
 
             except UnboundLocalError:
                 print("Choose a taxi first")
@@ -50,5 +43,6 @@ def main():
     print("Taxis are now:")
     for i in range(0, len(taxis)):
         print("{} - {}".format(i, taxis[i]))
+
 
 main()
