@@ -4,6 +4,7 @@ Car class
 """
 from random import uniform
 
+
 class Car:
     """ represent a car object """
 
@@ -44,7 +45,8 @@ class Taxi(Car):
 
     def __str__(self):
         """ return a string representation like a car but with current fare distance"""
-        return "{}, {}km on current fare, ${:.2f}/km".format(super().__str__(), self.current_fare_distance, self.price_per_km)
+        return "{}, {}km on current fare, ${:.2f}/km".format(super().__str__(), self.current_fare_distance,
+                                                             self.price_per_km)
 
     def get_fare(self):
         """ get the price for the taxi trip """
@@ -75,13 +77,12 @@ class Taxi(Car):
 
 
 class UnreliableCar(Car):
-
     def __init__(self, name, fuel, reliability):
         super().__init__(name, fuel)
         self.reliability = reliability
 
     def drive(self, distance):
-        drive_chance = uniform(0,100)
+        drive_chance = uniform(0, 100)
         if drive_chance < self.reliability:
             distance_driven = super().drive(distance)
         else:
@@ -89,8 +90,8 @@ class UnreliableCar(Car):
 
         return distance_driven
 
-class SilverServiceTaxi(Taxi):
 
+class SilverServiceTaxi(Taxi):
     flagfall = 4.5
 
     def __init__(self, name, fuel, fanciness):
@@ -124,7 +125,6 @@ class SilverServiceTaxi(Taxi):
         self.current_fare_distance += distance_driven
         return distance_driven
 
-    def get_trip_fare(self,distance, initial_fuel):
+    def get_trip_fare(self, distance, initial_fuel):
         cost_of_trip = distance * self.price_per_km + self.flagfall
         return cost_of_trip
-
