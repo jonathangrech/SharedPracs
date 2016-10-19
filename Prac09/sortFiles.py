@@ -1,13 +1,23 @@
 import os, shutil
 
+folder = 'FilesToSort'
 extensions_list = []
-for file in os.listdir('FilesToSort'):
+
+path = os.path.abspath(folder)
+os.chdir(path)
+print(os.getcwd())
+for file in os.listdir(path):
     if file == '.idea':
         continue
     file = file.split('.')
     if file[-1] not in extensions_list:
         extensions_list.append(file[-1])
 
-print(extensions_list)
+for extension in extensions_list:
+    try:
+        os.mkdir('{}'.format(extension))
+    except FileExistsError:
+        pass
 
-print(os.listdir('FilesToSort'))
+
+print(extensions_list)
