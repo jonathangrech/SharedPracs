@@ -19,5 +19,12 @@ for extension in extensions_list:
     except FileExistsError:
         pass
 
+for file in os.listdir(path):
+    if file == '.idea':
+        continue
+    extension = file.split('.')[-1]
+    file_path = path + '\{}'.format(file)
+    dest_path = path + '\{}'.format(extension)
+    shutil.move(file_path, dest_path)
 
 print(extensions_list)
