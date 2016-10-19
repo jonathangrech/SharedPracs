@@ -6,13 +6,17 @@ import os, shutil
 
 __author__ = 'Lindsay Ward'
 
+LYRICS_FOLDER = "Christmas"
+
+
 def main():
 
+    path = 'C:\\Users\\User\\Documents\\UNI\\CP1404\\Shared Pracs\\Prac09\\Lyrics\\' + LYRICS_FOLDER
 
     print("Current directory is", os.getcwd())
 
     # change to desired directory
-    os.chdir('Lyrics/Old')
+    # print(os.listdir('.'))
     # print a list of all files (test)
     # print(os.listdir('.'))
 
@@ -20,7 +24,7 @@ def main():
     # os.mkdir('temp')
 
     # loop through each file in the (original) directory
-    for filename in os.listdir('.'):
+    for filename in os.listdir(path):
         # ignore directories, just process files
         if not os.path.isdir(filename):
             new_name = filename.replace(" ", "_").replace(".TXT", ".txt")
@@ -43,12 +47,12 @@ def main():
             # shutil.move(filename, 'temp/' + new_name)
 
 
-            # Processing subdirectories using os.walk()
-            # os.chdir('..')
-            # for dir_name, subdir_list, file_list in os.walk('.'):
-            #     print("In", dir_name)
-            #     print("\tcontains subdirectories:", subdir_list)
-            #     print("\tand files:", file_list)
+    # Processing subdirectories using os.walk()
+    # os.chdir('..')
+    # for dir_name, subdir_list, file_list in os.walk(path):
+    #     print("In", dir_name)
+    #     print("\tcontains subdirectories:", subdir_list)
+    #     print("\tand files:", file_list)
 
 def split_camel_caps(new_name):
     final = ''
