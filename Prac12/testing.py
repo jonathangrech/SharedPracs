@@ -23,7 +23,22 @@ def is_long_word(word, length=5):
     >>> is_long_word("Python", 6)
     True
     """
-    return len(word) > length
+    return len(word) >= length
+
+def phrase_as_sentence(phrase):
+    """
+    >>> phrase_as_sentence("hello") == "Hello."
+    True
+    >>> phrase_as_sentence("It is an ex parrot.") == "It is an ex parrot."
+    True
+    >>> phrase_as_sentence("   hello world   ") == "Hello world."
+    True
+
+    """
+    final_character = "."
+    if phrase.strip()[-1] == ".":
+        final_character = ""
+    return phrase.strip()[0].upper() + phrase.strip()[1:] + final_character
 
 
 def run_tests():
@@ -48,7 +63,7 @@ def run_tests():
 run_tests()
 
 # TODO: 3. Uncomment the following line and run the doctests
-# doctest.testmod()
+doctest.testmod()
 
 # TODO: 4. Fix the failing is_long_word function (don't change the tests, but the function!)
 
